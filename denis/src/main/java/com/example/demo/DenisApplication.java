@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.entity.User;
-import com.example.demo.service.UserService;
+import com.example.demo.entity.Mensajes;
+import com.example.demo.service.MensajesService;
 
 @SpringBootApplication
 public class DenisApplication {
@@ -14,12 +14,12 @@ public class DenisApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DenisApplication.class, args);
 
-		ArrayList<User> Usuario = new ArrayList<>();
+		ArrayList<Mensajes> mensaje = new ArrayList<>();
 
 		System.out.println("Hola");
 
-		for (User usuarios : Usuario) {
-			System.out.println(usuarios.getName());
+		for (Mensajes mensajes : mensaje) {
+			System.out.println(mensajes.getPais());
 		}
 	}
 
