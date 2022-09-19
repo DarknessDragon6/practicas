@@ -20,11 +20,11 @@
 	
 	</tbody>
 	</table>
-	<form action="#" th: action="@{/mensajes/addmensajes" th: object ="${mensaje}" method ="post">
-	<p><input type = "text" placeholder="pais" th: field="*{id}"/></p>
+	
+	<form action="#" th: action="@{/mensajes/addmensajes"} th: object ="${mensaje}" method ="post">
 	<p><input type = "text" placeholder="pais" th: field="*{pais}"/></p>
 	<p><input type = "text" placeholder="mensaje" th: field="*{mensaje}"/></p>
-	
+	<button id="fBoton" class="submit" >Enviar</button>
 	</form>
 	
 </body>
