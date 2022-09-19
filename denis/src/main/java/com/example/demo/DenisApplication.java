@@ -14,12 +14,12 @@ public class DenisApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DenisApplication.class, args);
 
-		ArrayList<Mensajes> mensaje = new ArrayList<>();
+		ArrayList<Mensajes> mensajes = new ArrayList<>();
 
 		System.out.println("Hola");
 
-		for (Mensajes mensajes : mensaje) {
-			System.out.println(mensajes.getPais());
+		for (Mensajes mensaje : mensajes) {
+			System.out.println(mensaje.getPais());
 		}
 	}
 

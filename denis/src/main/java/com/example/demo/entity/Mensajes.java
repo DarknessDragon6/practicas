@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "mensajes")
+@Table(name = "Mensajes")
 
 public class Mensajes implements Serializable {
 
@@ -24,8 +24,8 @@ public class Mensajes implements Serializable {
 	private String pais;
 	
 
-	@Column(name = "mensajes", nullable = false, length = 50, unique = true)
-	private String mensajes;
+	@Column(name = "Mensaje", nullable = false, length = 50, unique = true)
+	private String mensaje;
 	private Boolean enabled;
 	
 	public Long getId() {
@@ -40,11 +40,11 @@ public class Mensajes implements Serializable {
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
-	public String getMensajes() {
-		return mensajes;
+	public String getMensaje() {
+		return mensaje;
 	}
-	public void setMensajes(String mensajes) {
-		this.mensajes = mensajes;
+	public void setMensaje(String mensajes) {
+		this.mensaje = mensajes;
 	}
 	public Boolean getEnabled() {
 		return enabled;

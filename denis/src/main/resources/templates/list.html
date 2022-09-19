@@ -13,19 +13,22 @@
 		</tr> 	
 	</thead>
 	<tbody>
-		<tr th: each= "mensajes : ${mensajes}">
-		<th th: text="${mensajes.pais}"></th>
-		<th th: text="${mensajes.mensajes}"></th>
-	</tr>
-	
+		<tr th:each="mensajes:${mensajes}">
+			<th th:text="${mensajes.pais}"></th>
+			<th th:text="${mensajes.mensaje}"></th>
+		</tr>
 	</tbody>
 	</table>
-	<form action="#" th: action="@{/mensajes/addmensajes" th: object ="${mensaje}" method ="post">
-	<p><input type = "text" placeholder="pais" th: field="*{id}"/></p>
-	<p><input type = "text" placeholder="pais" th: field="*{pais}"/></p>
-	<p><input type = "text" placeholder="mensaje" th: field="*{mensaje}"/></p>
-	
-	</form>
-	
+		<form th:action="@{/mensajes/addmensajes}" th:object ="${mensaje}" method ="POST">
+    <p><input type = "text" placeholder="pid" th:field="*{id}"/></p>
+    <p><input type = "text" placeholder="pais" th:field="*{pais}"/></p>
+    <p><input type = "text" placeholder="mensaje" th:field="*{mensaje}"/></p>
+    <button id="fBoton" class="submit" >Enviar</button>
+    <script type="text/javascript">
+        document.getElementById("fBoton").onclick = function () {
+        location.href = "/mensajes/list";
+    };
+    </script>
+    </form>    
 </body>
 </html>

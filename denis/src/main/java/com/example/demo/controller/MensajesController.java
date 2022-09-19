@@ -32,7 +32,7 @@ public class MensajesController  {
 	@Qualifier("mensajesservice")
 	private MensajesService mensajesservice;
 	
-	@GetMapping("/mensajes/list")
+	@GetMapping("/list")
 	public ModelAndView listAllMensajes() {
 		
 		ModelAndView mav = new ModelAndView("list");
@@ -40,20 +40,19 @@ public class MensajesController  {
 		mav.addObject("mensaje", new Mensajes());
 		return mav;
 	}
-
 	
 	// Create a new mensaje
 	
 	@PostMapping ("/addmensajes")
 	
-	public String addMensajes (@ModelAttribute(name="mensajes1")Mensajes mensaje) {
+	public void addMensajes (@ModelAttribute(name="mensajes1")Mensajes mensaje) {
 		mensajesservice.addmensajes(mensaje);
-		return "redirect:/mensajes/";
+		
 	}
 	
-	public ResponseEntity<?> create (@RequestBody Mensajes mensajes){
+	public ResponseEntity<?> create (@RequestBody Mensajes mensaje){
 		
-		return ResponseEntity.status(HttpStatus.CREATED).body(mensajesservice.save(mensajes));
+		return ResponseEntity.status(HttpStatus.CREATED).body(mensajesservice.save(mensaje));
 		
 		
 	}
@@ -82,7 +81,7 @@ public class MensajesController  {
 		}
 		
 		mensajes.get().setPais(mensajesDetails.getPais());
-		mensajes.get().setMensajes(mensajesDetails.getMensajes());
+		mensajes.get().setMensaje(mensajesDetails.getMensaje());
 
 
 		
