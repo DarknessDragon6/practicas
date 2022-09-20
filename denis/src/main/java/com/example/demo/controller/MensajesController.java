@@ -4,9 +4,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
-
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -19,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -48,9 +44,11 @@ public class MensajesController  {
 	
 	@PostMapping ("/addmensajes")
 	
-	public String addMensajes (@ModelAttribute(name="mensajes1")Mensajes mensaje) {
+	public ModelAndView addMensajes (@ModelAttribute(name="mensajes1")Mensajes mensaje) {
+		
 		mensajesservice.addmensajes(mensaje);
-		return "redirect:/mensajes/list";
+		String urlInterna = "/mensajes/list";
+		return new ModelAndView("redirect:"+urlInterna);
 	}
 	
 	public ResponseEntity<?> create (@RequestBody Mensajes mensaje){
