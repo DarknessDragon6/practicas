@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import com.example.demo.entity.Mensajes;
 import com.example.demo.service.MensajesService;
 
@@ -32,12 +33,18 @@ public class MensajesController  {
 	@Qualifier("mensajesservice")
 	private MensajesService mensajesservice;
 	
-	@GetMapping("/mensajes/list")
+	@GetMapping("/list")
 	public ModelAndView listAllMensajes() {
-		
+
+	    List<Mensajes> mensajes = mensajesservice.listAllMensajes();
+
+	    for(Mensajes mensaje : mensajes) {
+	        System.out.println(mensaje.getPais());
+	    }
+
 		ModelAndView mav = new ModelAndView("list");
-		mav.addObject("mensajes", mensajesservice.listAllMensajes());
-		mav.addObject("mensaje", new Mensajes());
+		mav.addObject("mensajes", mensajes);
+		mav.addObject("mensajeNuevo", new Mensajes());
 		return mav;
 	}
 
@@ -45,10 +52,10 @@ public class MensajesController  {
 	// Create a new mensaje
 	
 	@PostMapping ("/addmensajes")
-	
+
 	public String addMensajes (@ModelAttribute(name="mensajes1")Mensajes mensaje) {
 		mensajesservice.addmensajes(mensaje);
-		return "redirect:/mensajes/";
+		return "redirect:/mensajes/list";
 	}
 	
 	public ResponseEntity<?> create (@RequestBody Mensajes mensajes){

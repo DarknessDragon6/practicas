@@ -9,23 +9,23 @@
 	<thead>
 		<tr>
 		 <th>pais</th>
-		 <th>mensajes</th>
-		</tr> 	
+		 <th>mensaje</th>
+		</tr>
 	</thead>
 	<tbody>
-		<tr th: each= "mensajes : ${mensajes}">
-		<th th: text="${mensajes.pais}"></th>
-		<th th: text="${mensajes.mensajes}"></th>
-	</tr>
-	
+		<tr th:each="item :${mensajes}">
+			<th th:text="${item.pais}"></th>
+			<th th:text="${item.mensajes}"></th>
+		</tr>
 	</tbody>
 	</table>
-	
-	<form action="#" th: action="@{/mensajes/addmensajes"} th: object ="${mensaje}" method ="post">
-	<p><input type = "text" placeholder="pais" th: field="*{pais}"/></p>
-	<p><input type = "text" placeholder="mensaje" th: field="*{mensaje}"/></p>
-	<button id="fBoton" class="submit" >Enviar</button>
+
+	<form action="#" th:action="@{/mensajes/addmensajes}" th:object ="${mensajeNuevo}" method ="post">
+		<p><input type = "text" placeholder="pais" th:field="*{pais}"/></p>
+		<p><input type = "text" placeholder="mensaje" th:field="*{mensajes}"/></p>
+
+		<button type="submit">Enviar</button>
 	</form>
-	
+
 </body>
 </html>
