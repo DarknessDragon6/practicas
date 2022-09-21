@@ -2,18 +2,17 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="list.css" media=”screen” />
 <title>Lista de mensajes</title>
 </head>
 <body>
-	<h1>Lista de mensajes:</h1>
-	<button id="botonForm" class="submit-button" >Nuevo Mensaje</button>
+	<div id="cabecera"><h1>Lista de mensajes:</h1></div>
+	<div><button id="botonForm" class="submit-button" >Nuevo Mensaje</button></div>
 	<script type="text/javascript">
     document.getElementById("botonForm").onclick = function () {
         location.href = "/mensajes/form";
     };
 	</script>
-	<table border="1">
+	<div id="tabla"><table border="1">
 	<thead>
 		<tr>
 		 <th>Pais</th>
@@ -28,6 +27,6 @@
 			<th><button id="edit" class="edit-button">Editar</button><button id="delete" class="delete-button">Borrar</button></th>
 		</tr>
 	</tbody>
-	</table>
+	</table></div>
 </body>
 </html>
